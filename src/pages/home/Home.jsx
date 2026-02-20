@@ -1,9 +1,13 @@
-import { Typography } from '@mui/material'
-import React from 'react'
+import axios from 'axios';
+import { Typography } from '@mui/material';
+import Categories from '../../components/categories/Categories.jsx';
+
+
 export default function Home(){
     return (
         <div>
-            <Typography component={'h2'}> <h2>Home</h2></Typography>
+          <Categories />
+
         </div>
     )
 }
