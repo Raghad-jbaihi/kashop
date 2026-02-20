@@ -10,8 +10,11 @@ export default function Categories() {
     if(isLoading) return <CircularProgress/>
     if(isError) return <Box color={'red'}>{error.message}</Box>
 
+     console.log(data);
 
 return (
+
+    
     <Box>
       {data.response.map((category) => (
         <Box key={category.id}>
