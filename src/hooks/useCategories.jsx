@@ -10,7 +10,7 @@ export default function useCategories() {
     } 
 
     const query =useQuery({
-         queryKey:['categories'],
+         queryKey:['categories','en'],
          queryFn:getCategoris,
          staleTime:1000*60*5
     });  

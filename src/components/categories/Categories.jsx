@@ -11,16 +11,11 @@ export default function Categories() {
     if(isError) return <Box color={'red'}>{error.message}</Box>
 
      console.log(data);
+console.log(data?.response);
 
 return (
 
     
-    <Box>
-      {data.response.map((category) => (
-        <Box key={category.id}>
-          {category.name ?? `Category ${category.id}`}
-        </Box>
-      ))}
-    </Box>
+    <Box>{data.response.data.map(category=><Box>{category.name}</Box>)}</Box>
   );
 }
