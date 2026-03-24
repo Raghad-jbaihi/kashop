@@ -18,9 +18,12 @@ export default function Login(){
     const loginForm = async (values) => {
         try {
             const response = await axios.post(
-                `https://knowledgeshop.runasp.net/api/auth/Account/Login`,
-                values
-            );
+                `https://knowledgeshop.runasp.net/api/auth/Account/Login`,values);
+
+                if (response.status === 200){
+                    console.log(response);
+                    localStorage.setItem("accessToken",response.data.accessToken)
+                }
             console.log("response:", response)
         } catch (error) {
             setServerErrors(error.response?.data?.errors || ["Server error"]);

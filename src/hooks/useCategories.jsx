@@ -4,7 +4,7 @@ import axiosInstanse from '../api/axiosinstance';
 
 export default function useCategories() {
 
-    const getCategoris = async () => {
+ const getCategoris = async () => {
       const response = await axiosInstanse.get('/Categories');
       return response.data;
     } 

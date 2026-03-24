@@ -5,14 +5,15 @@ import Navbar from '../components/navbar/Navbar'
 import Footer from '../components/footer/Footer'
 
 export default function MainLayout() {
+
   return (
    
         <>
-         <Navbar></Navbar>
+         <Navbar/>
          <Container maxWidth="lg">
-         <Outlet></Outlet>
+         <Outlet/>
          </Container>
-         <Footer></Footer>
+         <Footer/>
         </>
    
   )
