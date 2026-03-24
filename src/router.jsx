@@ -4,7 +4,7 @@ import Register from "./pages/auth/register/Register";
 import Cart from "./pages/cart/Cart";
 import Home from "./pages/home/Home";
 import Login from "./pages/auth/logIn/Login";
-import UserContextProvider from "./context/UserContext";
+
 
 const router=createBrowserRouter([
     {
@@ -18,9 +18,9 @@ const router=createBrowserRouter([
             {
                 path:'/Cart',
                 element:
-                <UserContextProvider>
+
                     <Cart/>
-                </UserContextProvider>
+
             },
             
             {
