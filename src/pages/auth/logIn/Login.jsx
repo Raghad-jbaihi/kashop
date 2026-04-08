@@ -5,9 +5,13 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { loginSchema} from '../../../validation/LogInSchema'
+import useAuthStore from '../../../store/useAuthStore';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login(){
 
+const setToken =useAuthStore((state)=>state.setToken);
+const navigate=useNavigate();
     const [serverErrors, setServerErrors] = useState([]);
 
     const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm({
@@ -21,8 +25,8 @@ export default function Login(){
                 `https://knowledgeshop.runasp.net/api/auth/Account/Login`,values);
 
                 if (response.status === 200){
-                    console.log(response);
-                    localStorage.setItem("accessToken",response.data.accessToken)
+                    setToken(response.data.accessToken);
+                    navigate('/')
                 }
             console.log("response:", response)
         } catch (error) {

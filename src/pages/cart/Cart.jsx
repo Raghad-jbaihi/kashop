@@ -1,5 +1,7 @@
 import React from 'react'
 import useCarts from '../../hooks/useCarts'
+import { useCounterStore } from '../../store/useCounterStore';
+import Categories from '../../components/categories/categories';
 
 
 
@@ -8,11 +10,12 @@ export default function Cart() {
   const {data,isError,isLoading}=useCarts();
 
   console.log(data);
- 
 
+  
   return (
     <div>
-        Cart -{userName}
+      {console.log('cart')}
+        <Categories/>
         </div>
   )
 }

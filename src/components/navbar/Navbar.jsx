@@ -7,9 +7,18 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from "@mui/material/Link"
-import {Link as RouterLink} from 'react-router-dom'
+import {Link as RouterLink, useNavigate} from 'react-router-dom'
+import useAuthStore from '../../store/useAuthStore';
 
 export default function Navbar(){
+
+  const token=useAuthStore((state)=>state.token);
+  const logout =useAuthStore((state)=>state.logout);
+  const navigate=useNavigate();
+  const handlelogout =()=>{
+    logout();
+    navigate('/logIn');
+  }
    return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -19,9 +28,21 @@ export default function Navbar(){
           </Typography>
           <Box sx={{display:{xs:'none',sm:'flex'},gap:4,alignItems:'center'}}>
             <Link component={RouterLink} to ={'/'} color="inherit" underline="none">Home</Link>
-            <Link component={RouterLink} to ={'/Cart'} color="inherit" underline="none">Cart</Link>
-            <Link component={RouterLink} to ={'/Login'} color="inherit" underline="none">Login</Link>
+            {token?
+            (
+              <>
+              <Link component={RouterLink} to ={'/Cart'} color="inherit" underline="none">Cart</Link>
+            <Link component={'button'} onClick={handlelogout} color="inherit" underline="none">LogOut</Link>
+              </>
+            ):
+            (
+              <>
+               <Link component={RouterLink} to ={'/Login'} color="inherit" underline="none">Login</Link>
             <Link component={RouterLink} to ={'/Register'} color="inherit" underline="none">Register</Link>
+              </>
+            )
+            }
+           
           </Box>
           <IconButton
             size="large"
