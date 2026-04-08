@@ -1,7 +1,7 @@
 import React from 'react'
 import useCarts from '../../hooks/useCarts'
 import { useCounterStore } from '../../store/useCounterStore';
-import Categories from '../../components/categories/categories';
+import Categories from '../../components/categories/Categories';
 
 
 
